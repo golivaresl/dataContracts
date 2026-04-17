@@ -1,0 +1,2 @@
+pyyaml
+"datacontract-cli[duckdb]"

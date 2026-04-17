@@ -1,21 +1,23 @@
+cat YLC_DA09T.yaml
 dataContractSpecification: 0.0.1
 id: gentera-ylc-da09t-001
 name: Contrato Maestro YLC_DA09T
 version: 1.0.0
+description: Validación de diccionario técnico para tabla YLC_DA09T.
 
 servers:
-  # Servidor para producción en AIDP usando el driver nativo de OCI
-  prod_aidp:
-    type: s3 # Spark interpreta s3/oci de forma compatible en AIDP
-    endpointUrl: "oci://testDataCerts@idcuukoybpv7/"
+  local:
+    type: local
+    format: csv
+    path: YLC_DA09T.CSV
+    delimiter: ";"
 
 models:
   YLC_DA09T:
     type: table
     externalData:
       format: csv
-      # Nueva ruta nativa basada en tu URL de Ashburn
-      location: "oci://testDataCerts@idcuukoybpv7/YLC_DA09T.CSV"
+      location: YLC_DA09T.CSV
       delimiter: ";"
       header: true
     checks:
