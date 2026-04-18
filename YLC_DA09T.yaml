@@ -20,4 +20,4 @@ data_sources:
       - "TXTLG:string"
       - "FP_RTDWHEN:string"
     quality_checks:
-      not_null: ["BPARTNER", "VALIDTO"]
+      not_null: ["BPARTNER", "VALIDTO", "FP_RTGRMET"]
