@@ -1,74 +1,23 @@
-cat YLC_DA09T.yaml
-dataContractSpecification: 0.0.1
-id: gentera-ylc-da09t-001
-name: Contrato Maestro YLC_DA09T
-version: 1.0.0
-description: Validación de diccionario técnico para tabla YLC_DA09T.
-
-servers:
-  local:
-    type: local
-    format: csv
-    path: YLC_DA09T.CSV
-    delimiter: ";"
-
-models:
-  YLC_DA09T:
-    type: table
-    externalData:
-      format: csv
-      location: YLC_DA09T.CSV
+data_sources:
+  - name: sap_ylc_da09t
+    path: "oci://testDataCerts@idcuukoybpv7/YLC_DA09T.CSV"
+    format: "csv"
+    options:
+      header: "false"
       delimiter: ";"
-      header: true
-    checks:
-      - row_count > 0
-    fields:
-      BPARTNER:
-        type: string
-        description: "Interl.comercial"
-        required: true
-        maxLength: 10
-      VALIDTO:
-        type: string
-        description: "Válido a"
-        pattern: '^[0-9]{8}$'
-      FP_RTGRMET:
-        type: string
-        description: "Proced.valoración"
-        maxLength: 10
-      FP_RTCRIT:
-        type: string
-        description: "Criterio diferenc."
-        maxLength: 10
-      RECORDMODE:
-        type: string
-        description: "Modo actualización"
-        maxLength: 1
-      VALIDFROM:
-        type: string
-        description: "Válido de"
-        pattern: '^[0-9]{8}$'
-      FP_RTPERMT:
-        type: string
-        description: "Autoriz.valoración"
-        maxLength: 1
-      FP_RTGRADE:
-        type: string
-        description: "Valorac."
-        maxLength: 10
-      FP_RTTENDY:
-        type: string
-        description: "Tendencia"
-        maxLength: 2
-      FP_RTDWHEN:
-        type: string
-        description: "Fecha entrada"
-        pattern: '^[0-9]{8}$'
-      TXTLG:
-        type: string
-        description: "Descripción expl."
-        maxLength: 60
-      CRM_PROD:
-        type: string
-        description: "Producto"
-        maxLength: 32
+    target_table: "lake.bronze.ylc_da09t"
+    schema:
+      - "BPARTNER:string"
+      - "VALIDTO:string"
+      - "CRM_PROD:string"
+      - "FP_RTGRMET:string"
+      - "FP_RTCRIT:string"
+      - "RECORDMODE:string"
+      - "VALIDFROM:string"
+      - "FP_RTPERMT:string"
+      - "FP_RTGRADE:string"
+      - "FP_RTTENDY:string"
+      - "TXTLG:string"
+      - "FP_RTDWHEN:string"
+    quality_checks:
+      not_null: ["BPARTNER", "VALIDTO"]
