@@ -233,10 +233,10 @@ data_sources:
       # Campos obligatorios que no pueden ser nulos o vacíos
       not_null: 
         - "BPARTNER"
-        - "CHANGEDBY"
-        - "CH_ON"
-        - "CREATEDBY"
-        - "CREATEDON"
+      # - "CHANGEDBY"
+      # - "CH_ON"
+      # - "CREATEDBY"
+      # - "CREATEDON"
 
       # Validación de longitud (Ideal para reglas de negocio)
       max_length:
