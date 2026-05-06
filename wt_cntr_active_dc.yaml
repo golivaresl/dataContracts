@@ -1,0 +1,27 @@
+version: "1.0"
+dataset_name: "wt_cntr_active"
+description: "Data Contract para la tabla de contratos activos"
+
+data_sources:
+  - table_name: "dev_dwhdb_plata.dev_vtascob_plata.wt_cntr_active"
+    columns:
+      - name: "cntr_id"
+        type: "decimal(38,10)"
+      - name: "acct_num"
+        type: "decimal(38,10)"
+      - name: "cntr_start_dt"
+        type: "timestamp"
+    
+    quality_checks:
+      # Reglas para identificar registros incompletos
+      not_null:
+        - "cntr_id"
+        - "acct_group_id"
+        - "acct_num"
+        - "cntr_start_dt"
+        - "sg_party_num"
+        - "product_family_cd"
+      
+      # Definición de llave única para detección de duplicados
+      unique_keys:
+        - "cntr_id"
