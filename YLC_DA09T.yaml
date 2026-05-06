@@ -4,7 +4,7 @@ data_sources:
     # ORIGEN Y DESTINO (Basado en las variables de Workbench)
     # ---------------------------------------------------------
     # En lugar de un 'path' con oci://, leemos una tabla de Spark:
-    source_table: "dev_dwhdb_plata.dev_vtascob_plata.ylc_da01t"
+    source_table: "dev_dwhdb_plata.dev_vtascob_plata.ylc_da09t"
     format: "table" 
     
     # Variable TARGET_TABLE (oci_iceberg.silver.repvtas_iceberg)
@@ -13,56 +13,19 @@ data_sources:
     # ---------------------------------------------------------
     # 1. Definición de tipos para el motor de Spark
     # ---------------------------------------------------------
+    
     schema:
       - "BPARTNER:string"
+      - "VALIDTO:string"
+      - "CRM_PROD:string"
+      - "FP_RTGRMET:string"
+      - "FP_RTCRIT:string"
       - "RECORDMODE:string"
-      - "BP_ACTITL1:string"
-      - "BP_BTHNAME:string"
-      - "CHANGEDBY:string"
-      - "CH_AT:string"
-      - "CH_ON:string"
-      - "CREATEDBY:string"
-      - "CREATEDON:string"
-      - "CREA_TIME:string"
-      - "DATEBIRTH:string"
-      - "FP_TRCHILD:double"    
-      - "FP_TRMEMHO:double"    
-      # ... (Aquí puedes agregar el resto de los 106 campos)
-
-    # ---------------------------------------------------------
-    # 2. Validaciones de Integridad y Calidad
-    # ---------------------------------------------------------
+      - "VALIDFROM:string"
+      - "FP_RTPERMT:string"
+      - "FP_RTGRADE:string"
+      - "FP_RTTENDY:string"
+      - "TXTLG:string"
+      - "FP_RTDWHEN:string"
     quality_checks:
-      # Campos obligatorios que no pueden ser nulos o vacíos
-      not_null: 
-        - "BPARTNER"
-        - "CHANGEDBY"
-        - "CH_ON"
-        - "CREATEDBY"
-        - "CREATEDON"
-
-      # Validación de longitud (Ideal para reglas de negocio)
-      max_length:
-        BPARTNER: 10
-        RECORDMODE: 1
-        BP_ACTITL1: 4
-        BP_BTHNAME: 40
-        BP_EXTERN: 20
-        CHANGEDBY: 12
-        CREATEDBY: 12
-        CITY_2: 40
-        /BIC/ZCURP: 20  
-        /BIC/ZRFC: 10   
-
-      # Validación de patrones (Regex) para asegurar formatos de fecha SAP
-      patterns:
-        # Formato DATS (8 dígitos: YYYYMMDD)
-        CH_ON: '^[0-9]{8}$'
-        CREATEDON: '^[0-9]{8}$'
-        DATEBIRTH: '^[0-9]{8}$'
-        BPDATEFROM: '^[0-9]{8}$'
-        BPDATETO: '^[0-9]{8}$'
-        
-        # Formato TIMS (6 dígitos: HHMMSS)
-        CH_AT: '^[0-9]{6}$'
-        CREA_TIME: '^[0-9]{6}$'
+      not_null: ["BPARTNER", "VALIDTO"]
