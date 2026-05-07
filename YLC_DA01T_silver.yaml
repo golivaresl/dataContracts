@@ -1,18 +1,19 @@
 data_sources:
   - name: sap_ylc_da01t_plata
-    # ---------------------------------------------------------
-    # ORIGEN Y DESTINO (Basado en las variables de Workbench)
-    # ---------------------------------------------------------
-    # En lugar de un 'path' con oci://, leemos una tabla de Spark:
+
+    # =========================================================
+    # SOURCE / TARGET
+    # =========================================================
     source_table: "dev_dwhdb_plata.dev_vtascob_plata.ylc_da01t"
-    format: "table" 
-    
-    # Variable TARGET_TABLE (oci_iceberg.silver.repvtas_iceberg)
     target_table: "oci_iceberg.silver.repvtas_iceberg"
-    
-    # 1. Definición de tipos para el motor de Spark
-    
+
+    format: "table"
+
+    # =========================================================
+    # SCHEMA
+    # =========================================================
     schema:
+
       - name: "bpartner"
         type: "string"
 
@@ -336,9 +337,9 @@ data_sources:
     # =========================================================
     quality_checks:
 
-      # -----------------------------
-      # CAMPOS OBLIGATORIOS
-      # -----------------------------
+      # -----------------------------------------------------
+      # NOT NULL
+      # -----------------------------------------------------
       not_null:
         - "bpartner"
         - "changedby"
@@ -346,10 +347,24 @@ data_sources:
         - "createdby"
         - "createdon"
 
-      # -----------------------------
-      # LONGITUDES
-      # -----------------------------
+      # -----------------------------------------------------
+      # DUPLICADOS
+      # -----------------------------------------------------
+      unique_keys:
+        - ["bpartner"]
+
+      duplicate_strategy: "latest"
+
+      order_by:
+        - "createdon desc"
+
+      quarantine_duplicates: true
+
+      # -----------------------------------------------------
+      # MAX LENGTH
+      # -----------------------------------------------------
       max_length:
+
         bpartner: 10
         recordmode: 1
         bp_actitl1: 4
@@ -361,18 +376,18 @@ data_sources:
         zcurp: 20
         zrfc: 10
 
-      # -----------------------------
+      # -----------------------------------------------------
       # REGEX / FORMATOS SAP
-      # -----------------------------
+      # -----------------------------------------------------
       patterns:
 
-        # DATS -> YYYYMMDD
+        # SAP DATS
         ch_on: '^[0-9]{8}$'
         createdon: '^[0-9]{8}$'
         datebirth: '^[0-9]{8}$'
         bpdatefrom: '^[0-9]{8}$'
         bpdateto: '^[0-9]{8}$'
 
-        # TIMS -> HHMMSS
+        # SAP TIMS
         ch_at: '^[0-9]{6}$'
         crea_time: '^[0-9]{6}$'
