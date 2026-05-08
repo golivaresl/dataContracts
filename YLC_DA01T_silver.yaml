@@ -349,7 +349,6 @@ data_sources:
       not_null:
 
         - "bpartner"
-        - "changedby"
         - "ch_on"
         - "createdby"
         - "createdon"
@@ -367,30 +366,6 @@ data_sources:
         createdon:
           - "00000000"
           - "00000000 "
-
-        datebirth:
-          - "00000000"
-          - "00000000 "
-
-        bpdatefrom:
-          - "00000000"
-          - "00000000 "
-
-        bpdateto:
-          - "00000000"
-          - "00000000 "
-
-        ch_at:
-          - "000000"
-          - "000000 "
-
-        crea_time:
-          - "000000"
-          - "000000 "
-
-        changedby:
-          - "000000"
-          - "000000 "
 
         createdby:
           - "000000"
