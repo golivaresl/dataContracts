@@ -1,0 +1,503 @@
+data_sources:
+
+  - name: sap_ylc_da01t_plata
+
+    # =====================================================
+    # ORIGEN / DESTINO
+    # =====================================================
+
+    source_table: "dev_dwhdb_plata.dev_vtascob_plata.ylc_da01t"
+
+    format: "table"
+
+    target_table: "oci_iceberg.silver.ylc_da01t_dc"
+
+    # =====================================================
+    # ESQUEMA
+    # =====================================================
+
+    schema:
+
+      - name: "bpartner"
+        type: "string"
+
+      - name: "recordmode"
+        type: "string"
+
+      - name: "bp_actitl1"
+        type: "string"
+
+      - name: "bp_actitl2"
+        type: "string"
+
+      - name: "bp_bthname"
+        type: "string"
+
+      - name: "bp_cat"
+        type: "string"
+
+      - name: "bp_cons"
+        type: "string"
+
+      - name: "bp_contact"
+        type: "string"
+
+      - name: "bp_extern"
+        type: "string"
+
+      - name: "bp_fstname"
+        type: "string"
+
+      - name: "bp_group"
+        type: "string"
+
+      - name: "bp_grpnam1"
+        type: "string"
+
+      - name: "bp_grpnam2"
+        type: "string"
+
+      - name: "bp_grptype"
+        type: "string"
+
+      - name: "bp_lstname"
+        type: "string"
+
+      - name: "bp_mar_sta"
+        type: "string"
+
+      - name: "bp_mdlname"
+        type: "string"
+
+      - name: "bp_secname"
+        type: "string"
+
+      - name: "changedby"
+        type: "string"
+
+      - name: "ch_at"
+        type: "string"
+
+      - name: "ch_on"
+        type: "string"
+
+      - name: "createdby"
+        type: "string"
+
+      - name: "createdon"
+        type: "string"
+
+      - name: "crea_time"
+        type: "string"
+
+      - name: "gender"
+        type: "string"
+
+      - name: "legalform"
+        type: "string"
+
+      - name: "name_org1"
+        type: "string"
+
+      - name: "name_org2"
+        type: "string"
+
+      - name: "name_org3"
+        type: "string"
+
+      - name: "name_org4"
+        type: "string"
+
+      - name: "nation"
+        type: "string"
+
+      - name: "title_sppl"
+        type: "string"
+
+      - name: "bp_type"
+        type: "string"
+
+      - name: "gn_par_ssy"
+        type: "string"
+
+      - name: "logsys"
+        type: "string"
+
+      - name: "bp_guid"
+        type: "string"
+
+      - name: "datebirth"
+        type: "string"
+
+      - name: "name_co"
+        type: "string"
+
+      - name: "langu"
+        type: "string"
+
+      - name: "txtsh"
+        type: "string"
+
+      - name: "txtmd"
+        type: "string"
+
+      - name: "txtlg"
+        type: "string"
+
+      - name: "orgunit"
+        type: "string"
+
+      - name: "user_name"
+        type: "string"
+
+      - name: "user_syst"
+        type: "string"
+
+      - name: "fp_trchild"
+        type: "decimal(17,2)"
+
+      - name: "city_2"
+        type: "string"
+
+      - name: "hrposition"
+        type: "string"
+
+      - name: "tctusernm"
+        type: "string"
+
+      - name: "c_person"
+        type: "string"
+
+      - name: "tctsysid"
+        type: "string"
+
+      - name: "zactiv_ec"
+        type: "string"
+
+      - name: "zsector"
+        type: "string"
+
+      - name: "zgiro"
+        type: "string"
+
+      - name: "zae_time"
+        type: "string"
+
+      - name: "zbirthpl"
+        type: "string"
+
+      - name: "zbp_escol"
+        type: "string"
+
+      - name: "fp_trmemho"
+        type: "decimal(17,2)"
+
+      - name: "zcurp"
+        type: "string"
+
+      - name: "zfec_fall"
+        type: "string"
+
+      - name: "zfiel"
+        type: "string"
+
+      - name: "zfteing"
+        type: "string"
+
+      - name: "zneg_time"
+        type: "string"
+
+      - name: "zocupac"
+        type: "string"
+
+      - name: "ztipoloc"
+        type: "string"
+
+      - name: "zubi_time"
+        type: "string"
+
+      - name: "zviv_time"
+        type: "string"
+
+      - name: "zreg_elec"
+        type: "string"
+
+      - name: "zrfc"
+        type: "string"
+
+      - name: "fp_trprost"
+        type: "string"
+
+      - name: "stabupsys0"
+        type: "string"
+
+      - name: "stabupsys1"
+        type: "string"
+
+      - name: "zdel_flag"
+        type: "string"
+
+      - name: "zblk_flag"
+        type: "string"
+
+      - name: "zoid_type"
+        type: "string"
+
+      - name: "zdid_addr"
+        type: "string"
+
+      - name: "z_tipores"
+        type: "string"
+
+      - name: "bpdatefrom"
+        type: "string"
+
+      - name: "bpdateto"
+        type: "string"
+
+      - name: "country"
+        type: "string"
+
+      - name: "region"
+        type: "string"
+
+      - name: "me_title"
+        type: "string"
+
+      - name: "bp_taxcat"
+        type: "string"
+
+      - name: "bp_taxnumb"
+        type: "string"
+
+      - name: "crm_bilblk"
+        type: "string"
+
+      - name: "crm_delblk"
+        type: "string"
+
+      - name: "crm_ordblk"
+        type: "string"
+
+      - name: "crm_debcrd"
+        type: "string"
+
+      - name: "zper_fis"
+        type: "string"
+
+      - name: "zde_grem"
+        type: "string"
+
+      - name: "zde_onac"
+        type: "string"
+
+      - name: "zde_onat"
+        type: "string"
+
+      - name: "zde_inat"
+        type: "string"
+
+      - name: "zbp_hclv"
+        type: "string"
+
+      - name: "zclv_elec"
+        type: "string"
+
+      - name: "zsolicnam"
+        type: "string"
+
+      - name: "zbp_taxnm"
+        type: "string"
+
+      - name: "zunw_cust"
+        type: "string"
+
+      - name: "zunw_rsn"
+        type: "string"
+
+      - name: "zunw_grp"
+        type: "string"
+
+      - name: "zclas_gpo"
+        type: "string"
+
+      - name: "zbpemplo"
+        type: "string"
+
+      - name: "zrefia"
+        type: "string"
+
+      - name: "zrefic"
+        type: "string"
+
+      - name: "zcfdia"
+        type: "string"
+
+      - name: "zcfdic"
+        type: "string"
+
+    # =====================================================
+    # QUALITY CHECKS
+    # =====================================================
+
+    quality_checks:
+
+      # ===================================================
+      # CAMPOS OBLIGATORIOS
+      # ===================================================
+
+      not_null:
+
+        - "bpartner"
+        - "bp_grpnam1"
+
+      # ===================================================
+      # VALORES INVÁLIDOS SAP
+      # ===================================================
+
+      invalid_values:
+
+        createdon:
+          - "00000000"
+          - "00000000 "
+
+        createdby:
+          - "000000"
+          - "000000 "
+
+      # ===================================================
+      # LONGITUDES MÁXIMAS
+      # ===================================================
+
+      max_length:
+        bpartner: 10
+        recordmode: 1
+        bp_actitl1: 4
+        bp_actitl2: 4
+        bp_bthname: 40
+        bp_cat: 1
+        bp_cons: 6
+        bp_contact: 10
+        bp_extern: 20
+        bp_fstname: 40
+        bp_group: 4
+        bp_grpnam1: 40
+        bp_grpnam2: 40
+        bp_grptype: 4
+        bp_lstname: 40
+        bp_mar_sta: 1
+        bp_mdlname: 40
+        bp_secname: 40
+        changedby: 12
+        ch_at: 6
+        ch_on: 8
+        createdby: 12
+        createdon: 8
+        crea_time: 6
+        gender: 1
+        legalform: 2
+        name_org1: 40
+        name_org2: 40
+        name_org3: 40
+        name_org4: 40
+        nation: 3
+        title_sppl: 4
+        bp_type: 4
+        gn_par_ssy: 10
+        logsys: 10
+        bp_guid: 32
+        datebirth: 8
+        name_co: 40
+        langu: 2
+        txtsh: 20
+        txtmd: 40
+        txtlg: 60
+        orgunit: 8
+        user_name: 12
+        user_syst: 10
+        fp_trchild: 17
+        city_2: 40
+        hrposition: 8
+        tctusernm: 12
+        c_person: 8
+        tctsysid: 10
+        zactiv_ec: 4
+        zsector: 4
+        zgiro: 4
+        zae_time: 2
+        zbirthpl: 40
+        zbp_escol: 2
+        fp_trmemho: 17
+        zcurp: 18
+        zfec_fall: 8
+        zfiel: 20
+        zfteing: 2
+        zneg_time: 2
+        zocupac: 4
+        ztipoloc: 2
+        zubi_time: 2
+        zviv_time: 2
+        zreg_elec: 18
+        zrfc: 13
+        fp_trprost: 2
+        stabupsys0: 2
+        stabupsys1: 2
+        zdel_flag: 1
+        zblk_flag: 1
+        zoid_type: 2
+        zdid_addr: 10
+        z_tipores: 2
+        bpdatefrom: 8
+        bpdateto: 8
+        country: 3
+        region: 3
+        me_title: 4
+        bp_taxcat: 4
+        bp_taxnumb: 20
+        crm_bilblk: 2
+        crm_delblk: 2
+        crm_ordblk: 2
+        crm_debcrd: 1
+        zper_fis: 1
+        zde_grem: 10
+        zde_onac: 10
+        zde_onat: 10
+        zde_inat: 10
+        zbp_hclv: 10
+        zclv_elec: 18
+        zsolicnam: 40
+        zbp_taxnm: 20
+        zunw_cust: 1
+        zunw_rsn: 4
+        zunw_grp: 4
+        zclas_gpo: 2
+        zbpemplo: 1
+        zrefia: 10
+        zrefic: 10
+        zcfdia: 10
+        zcfdic: 10
+
+      # ===================================================
+      # FORMATOS REGEX
+      # ===================================================
+
+      patterns:
+
+        # SAP DATS
+        ch_on: '^[0-9]{8}$'
+        createdon: '^[0-9]{8}$'
+        datebirth: '^[0-9]{8}$'
+        bpdatefrom: '^[0-9]{8}$'
+        orgunit: '^[0-9]{8}$'
+        
+        # SAP TIMS
+        ch_at: '^[0-9]{6}$'
+        crea_time: '^[0-9]{6}$'
+
+      # ===================================================
+      # DUPLICADOS
+      # ===================================================
+
+      duplicate_keys:
+
+        - "bpartner"
