@@ -349,7 +349,7 @@ data_sources:
       not_null:
 
         - "bpartner"
-#        - "bp_grpnam1"
+        - "bp_grpnam1"
 
       # ===================================================
       # VALORES INVÁLIDOS SAP
