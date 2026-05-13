@@ -488,8 +488,7 @@ data_sources:
         createdon: '^[0-9]{8}$'
         datebirth: '^[0-9]{8}$'
         bpdatefrom: '^[0-9]{8}$'
-        orgunit: '^[0-9]{8}$'
-        
+                
         # SAP TIMS
         ch_at: '^[0-9]{6}$'
         crea_time: '^[0-9]{6}$'
